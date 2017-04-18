@@ -4,6 +4,8 @@ var interval;
 
 function startGame() {
   gameArea = new GameArea(500, 500);
+  player = new Player(5, 5, "green", 35, 35, gameArea.context);
+
   window.addEventListener('keydown', function(e) {
     gameArea.keys = (gameArea.keys || []);
     gameArea.keys[e.keyCode] = true;
@@ -12,9 +14,7 @@ function startGame() {
     gameArea.keys[e.keyCode] = false;
   });
 
-  player = new Player(5, 5, "green", 35, 35, gameArea.context);
-
-  interval = setInterval(function() {updateGameArea()}, 20);
+  interval = setInterval(function() {updateGameArea()}, 15);
 }
 
 function updateGameArea() {
